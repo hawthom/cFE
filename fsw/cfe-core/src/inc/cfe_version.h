@@ -31,28 +31,30 @@
  * <H2> Version Number Semantics </H2>
  *
  * The version number is a sequence of four numbers, generally separated by dots when written. These are, in order,
- * the Major number, the Minor number, the Implementation Revision number, and the Mission Revision number. At
+ * the Major number, the Minor number, the Revision number, and the Mission Revision number. At
  * their option, Missions may modify the Mission Revision information as needed to suit their needs.
  *
- * The Major number shall be incremented on release to indicate when there is a change to an API
- * that may cause existing correctly-written cFS components to stop working. It may also be incremented for a
+ * It is important to note that Major, Minor, and Revision numbers are only updated upon official releases of tagged
+ * versions, \b NOT on development builds.
+ *
+ * The MAJOR number shall be incremented on release to indicate when there is a change to an API
+ * that may cause existing, correctly-written cFS components to stop working. It may also be incremented for a
  * release that contains changes deemed to be of similar impact, even if there are no actual changes to the API.
  *
- * The Minor number shall be incremented on release to indicate the addition of features to the API,
+ * The MINOR number shall be incremented on release to indicate the addition of features to the API
  * which do not break the existing code.  It may also be incremented for a release that contains changes deemed
  * to be of similar impact, even if there are no actual updates to the API.
  *
- * The Implementation Revision Version number shall be incremented on changes to software in the master branch,
- * or other changes that benefit from unique identification. It is used for identifying open source development
- * versions.  It is important to note that Major and Minor numbers are only updated upon official releases
- * of tagged versions (see the release tab), \b NOT on development version updates in the master branch.
+ * The REVISION number shall be incremented on changes that benefit from unique identification such as bug fixes or
+ * major documentation updates. The Revision number may also be updated if there are other changes contained within a
+ * release that make it desirable for applications to distinguish one release from another.
  *
- * The Major, Minor, and Implementation Revision numbers are provided in this header file as part of the API
+ * The Major, Minor, and Revision numbers are provided in this header file as part of the API
  * definition; this macro must expand to a simple integer value, so that it can be used in simple if directives
  * by the macro preprocessor.
  *
  * The Mission Version number shall be set to zero in all officially released packages, and is entirely reserved
- * for the use of the mission.  The Mission Version is provided as a simple macro defined in the cfe_platform_cfg.h
+ * for the use of the mission. The Mission Version is provided as a simple macro defined in the cfe_platform_cfg.h
  * header file.
  *
  * <H2> Version Number Flexibility </H2>
