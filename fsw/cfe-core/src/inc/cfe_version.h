@@ -65,20 +65,31 @@
  * The minor number may increment when there have been no augmentations to the API, if changes are as significant as
  * additions to the public API.
  *
- * The revision numbers may update in implementations where no actual implementation-specific code has changed, if
+ * The revision numbers may increment in implementations where no actual implementation-specific code has changed, if
  * there are other changes within the release with similar significance.
  *
  * <H2> How and Where Defined </H2>
  *
  * The Major, Minor, and Revision components of the version are provided as simple macros defined in the cfe_version.h
- * header file as part of the API definition; these macros must expand to simple integer values, so that they can be used
- * in simple if directives by the macro preprocessor.
+ * header file as part of the API definition; these macros must expand to simple integer values, so that they can be
+ * used in simple if directives by the macro preprocessor.
  *
  * The Mission Version is provided as a simple macro defined in the cfe_platform_cfg.h header file. As delivered in
  * official releases, these macros must expand to simple integer values, so that they can be used in simple macro
  * preprocessor conditions, but delivered code should not prevent a mission from, for example, deciding that the Mission
  * Version is actually a text string.
  *
+ * <H2> Identification of development builds </H2>
+ *
+ * In order to distinguish between development versions, we provide a BUILD_NAME and a BUILD_NUMBER.
+ *
+ * The BASELINE is a unifying monicker that indicates compatibility across the core Flight System's propduct suite. The
+ * basline name is a star or constellation name and changes once per official release. Subsequent baseline names starts with
+ * the next letter in the 24-character alphabet. In between official releases, the BASELINE will be held constant.
+ *
+ * The BUILDNUMBER reflects the number of commits since the last official release for each particular component. This
+ * integer monotonically increases for a given BUILDNAME. When a new BUILDNAME is applied, the BUILDNUMBER resets to
+ * zero.
  */
 
 #ifndef _cfe_version_
@@ -91,13 +102,19 @@
  */
 #include <target_config.h>
 
+/*
+** Development build identifiers
+*/
+#define CFE_BASELINE     "Bootes"
+#define CFE_BUILDNUMBER 289
 
 /*
 ** Macro Definitions
 */
-#define CFE_MAJOR_VERSION         6
-#define CFE_MINOR_VERSION         7
-#define CFE_REVISION              21
+#define CFE_MAJOR_VERSION 6
+#define CFE_MINOR_VERSION 7
+#define CFE_REVISION      21
 
 
-#endif  /* _cfe_version_ */
+
+#endif /* _cfe_version_ */
